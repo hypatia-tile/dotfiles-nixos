@@ -1,1 +1,2 @@
-# Dotfiles on NixOS
+# dotfiles-nixos
+Configuration file on NixOS
