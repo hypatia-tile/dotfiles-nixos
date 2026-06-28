@@ -1,0 +1,8 @@
+cradle:
+  direct:
+    arguments:
+      - xmonad.hs
+      - -package
+      - xmonad
+      - -package
+      - xmonad-contrib
