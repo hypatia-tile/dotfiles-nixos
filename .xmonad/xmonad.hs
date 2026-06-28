@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Util.EZConfig
+import XMonad.Layout.ResizableTile
 import XMonad.Hooks.ManageHelpers
 import System.Exit
 import qualified XMonad.StackSet as W
@@ -26,6 +27,7 @@ main =
       , terminal = "kitty"
       , borderWidth = 2
       , manageHook = myManageHook <+> manageHook def
+      , layoutHook = ResizableTall 1 (3/100) (1/2) [] ||| Mirror (ResizableTall 1 (3/100) (1/2) [])
       }
       `additionalKeysP`
       [ ("M-<Return>", spawn "kitty")
@@ -40,4 +42,7 @@ main =
       , ("M-f", withFocused $ \w -> windows $ W.float w (W.RationalRect 0.2 0.2 0.6 0.6))
       -- Return focused window to tiling
       , ("M-t", withFocused $ \w -> windows $ W.sink w)
+      -- Change virtical size
+      , ("M-a", sendMessage MirrorExpand)
+      , ("M-z", sendMessage MirrorShrink)
       ]
