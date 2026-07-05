@@ -18,6 +18,7 @@
 
         hpkgs.haskell-language-server
         hpkgs.fourmolu
+        hpkgs.fast-tags
       ];
     };
   };
